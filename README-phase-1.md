@@ -8,6 +8,10 @@ loaded.
 
 Clone the practice from the [starter].
 
+Run `node app.js` from the base directory to start the server which will serve
+the static assets in the practice. Navigate to [http://localhost:5000] in your
+browser to see the __public/index.html__ file rendered.
+
 ## Instructions
 
 Take some time to browse through each file. __public/index.html__ is where your
@@ -26,3 +30,4 @@ create a CSS file, use inline-styles with JavaScript, or a mix of both.
 
 [starter]: https://github.com/appacademy/practice-for-week-09-catsagram-long-practice-day-1
 [API documentation]: https://docs.thecatapi.com/api-reference/images/images-search
+[http://localhost:5000]: http://localhost:5000
