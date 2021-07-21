@@ -24,5 +24,5 @@ Don't forget to connect __index.html__ with __index.js__.
 If you wish, you may also add your own flair to the styling. You can choose to
 create a CSS file, use inline-styles with JavaScript, or a mix of both.
 
-[starter]: https://github.com/appacademy/practice-for-week-09-catstagram-long-practice-day-1
+[starter]: https://github.com/appacademy/practice-for-week-09-catsagram-long-practice-day-1
 [API documentation]: https://docs.thecatapi.com/api-reference/images/images-search
