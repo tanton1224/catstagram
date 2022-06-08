@@ -125,7 +125,7 @@ window.onload = async () => {
     downScore = 0;
     likeCount.innerText = `Likes: ${upScore}`
     dislikeCount.innerText = `Dislikes: ${downScore}`
-    commentSection.innerHTML = ''
+    comments.innerHTML = ''
   }
 
   newCatButton.addEventListener('click', getNewCat)
