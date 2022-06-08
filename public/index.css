@@ -18,7 +18,7 @@ h1 {
 .post {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 35px 480px 50px 1fr 50px;
+  grid-template-rows: 35px 480px 35px 1fr 50px;
   grid-template-areas:
       "Post-Title"
       "Post-Picture"
@@ -57,11 +57,35 @@ h1 {
   align-items: flex-start;
   margin-left: 10px;
 }
+
 .commentSection{
   grid-area: "Comment-Section";
   margin-left: 10px;
   overflow-y: scroll;
 }
+
+.comments-header-div {
+  background-color: #FFFFFF;
+  position: fixed;
+  width: 445px;
+}
+
+.comments-header {
+  margin: 0px;
+}
+
+.comments {
+  list-style-type: none;
+  word-wrap:break-word;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.comment {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
+
 .comment-bar{
   grid-area: "Post-Comment";
   /* margin-left: 10px; */
@@ -74,11 +98,18 @@ textarea {
   width: 380px;
   height: 25;
   resize: none;
+  font-family: sans-serif;
 }
+
+comment-post-button {
+  
+}
+
 span {
   margin: 5px;
 }
 
 .newCatButton {
   margin-top: 20px;
+  font-weight: bold;
 }

@@ -70,7 +70,20 @@ window.onload = async () => {
   //comment section
   const commentSection = document.createElement('div')
   commentSection.setAttribute('class', 'commentSection')
+
   const comments = document.createElement('ul')
+  comments.setAttribute("class", "comments")
+
+  const commentsHeaderDiv = document.createElement('div')
+  const commentsHeader = document.createElement('h3')
+  commentsHeaderDiv.append(commentsHeader)
+  commentsHeaderDiv.setAttribute('class', "comments-header-div")
+
+  commentsHeader.innerText = "Comments"
+  commentsHeader.setAttribute("class", "comments-header")
+
+
+  commentSection.append(commentsHeaderDiv)
   commentSection.append(comments)
   postDiv.append(commentSection)
 
@@ -81,6 +94,7 @@ window.onload = async () => {
   textArea.setAttribute('placeholder', "Add a comment...")
   const postButton = document.createElement('button')
   postButton.innerText = "POST"
+  postButton.setAttribute('class', 'comment-post-button')
 
   newCommentBar.append(textArea)
   newCommentBar.append(postButton)
@@ -88,6 +102,7 @@ window.onload = async () => {
 
   const postComment = async () => {
     const comment = document.createElement('li')
+    comment.setAttribute('class', 'comment')
     comment.innerText = textArea.value
 
     comments.append(comment)
