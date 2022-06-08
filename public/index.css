@@ -1,3 +1,8 @@
+body {
+  background-color: #fafafa;
+  font-family: -apple-system,  "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -7,6 +12,7 @@
 
 h1 {
   text-align: center;
+  font-family: "Segoe Script";
 }
 
 .post {
@@ -22,8 +28,9 @@ h1 {
   justify-content: center;
 
   border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+  /* border: 2px solid rgba(0, 0, 0, .3); */
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+  background-color: #FFFFFF;
 
   width: 472px;
   height: 760px;
@@ -43,7 +50,7 @@ h1 {
   width: 472px;
   height: 472px;
   object-fit: cover;
-  border-radius: 3px;
+  /* border-radius: 3px; */
 }
 .interactiveBar{
   grid-area: "Interactive-Bar";
