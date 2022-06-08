@@ -101,8 +101,8 @@ textarea {
   font-family: sans-serif;
 }
 
-comment-post-button {
-  
+.comment-post-button {
+  font-weight: bold;
 }
 
 span {
