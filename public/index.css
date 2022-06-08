@@ -10,11 +10,68 @@ h1 {
 }
 
 .post {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 35px 480px 50px 1fr 50px;
+  grid-template-areas:
+      "Post-Title"
+      "Post-Picture"
+      "Interactive-Bar"
+      "Comment-Section"
+      "Post-Comment";
   justify-content: center;
 
-  max-width: 472px;
-  max-height: 760px;
-  margin: auto;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
 
+  width: 472px;
+  height: 760px;
+  margin: auto;
+}
+.post-title{
+  grid-area: "Post-Title";
+  align-self: center;
+  margin-left: 10px;
+}
+
+.picDiv {
+  grid-area: "Post-Picture";
+  width: 472px;
+}
+.cat-picture{
+  width: 472px;
+  height: 472px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.interactiveBar{
+  grid-area: "Interactive-Bar";
+  align-items: flex-start;
+  margin-left: 10px;
+}
+.commentSection{
+  grid-area: "Comment-Section";
+  margin-left: 10px;
+  overflow-y: scroll;
+}
+.comment-bar{
+  grid-area: "Post-Comment";
+  /* margin-left: 10px; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+textarea {
+  width: 380px;
+  height: 25;
+  resize: none;
+}
+span {
+  margin: 5px;
+}
+
+.newCatButton {
+  margin-top: 20px;
 }
