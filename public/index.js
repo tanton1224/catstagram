@@ -23,10 +23,6 @@ window.onload = async () => {
     localStorage.setItem('theme', 'light-mode')
   }
 
-  function changeTheme(themeName) {
-    document.body.className = `theme-${themeName}`
-  }
-
   themeButton.addEventListener('click', toggleTheme)
 
   function toggleTheme() {
