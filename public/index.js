@@ -4,6 +4,10 @@ window.onload = async () => {
   const mainContainer = document.createElement('div');
   mainContainer.setAttribute('class', 'main-container')
   document.body.append(mainContainer);
+
+  //themes
+
+
   //title
   const title = document.createElement("h1")
   title.innerText = "Catstagram"
@@ -26,12 +30,18 @@ window.onload = async () => {
   postDiv.append(picDiv)
 
   //post-image
-  let res = await fetch("https://api.thecatapi.com/v1/images/search/");
-  let data = await res.json();
   const image = document.createElement("img")
-  image.setAttribute("src", `${data[0].url}`)
+  if(localStorage.getItem('cat-pic')){
+    image.setAttribute("src", `${localStorage.getItem('cat-pic')}`) //if local storage has, then dont get a new pic
+  } else { //else get new pic
+    let res = await fetch("https://api.thecatapi.com/v1/images/search/");
+    let data = await res.json();
+    image.setAttribute("src", `${data[0].url}`)
+    localStorage.setItem('cat-pic', `${data[0].url}`)
+  }
   image.setAttribute("class", 'cat-picture')
   picDiv.append(image)
+
 
   //post-likes and dislikes
   const interactiveBar = document.createElement('div')
@@ -44,24 +54,34 @@ window.onload = async () => {
 
   let upScore = 0;
   let downScore = 0;
+  if (localStorage.getItem('up-score') && localStorage.getItem('down-score')){
+    upScore = localStorage.getItem('up-score')
+    downScore = localStorage.getItem('down-score')
+  } else {
+    localStorage.setItem('up-score', `${upScore}`)
+    localStorage.setItem('down-score', `${downScore}`)
+  }
+
   const likeCount = document.createElement('span')
   const dislikeCount = document.createElement('span')
   interactiveBar.append(like)
   interactiveBar.append(likeCount)
-  likeCount.innerText = `Likes: ${upScore}`
+  likeCount.innerText = `Likes: ${localStorage.getItem('up-score')}`
   interactiveBar.append(dislike)
   interactiveBar.append(dislikeCount)
-  dislikeCount.innerText = `Dislikes: ${downScore}`
+  dislikeCount.innerText = `Dislikes: ${localStorage.getItem('down-score')}`
   postDiv.append(interactiveBar)
 
   //upvote/downvote events
   const upvote = async () => {
     upScore ++;
-    likeCount.innerText = `Likes: ${upScore}`
+    likeCount.innerText = `Likes: ${upScore}`;
+    localStorage.setItem('up-score', `${upScore}`) //update the local storage
   }
   const downvote = async () => {
     downScore ++;
     dislikeCount.innerText = `Dislikes: ${downScore}`
+    localStorage.setItem('down-score', `${downScore}`) //update the local storage
   }
 
   like.addEventListener('click', upvote)
@@ -82,6 +102,9 @@ window.onload = async () => {
   commentsHeader.innerText = "Comments"
   commentsHeader.setAttribute("class", "comments-header")
 
+  if (localStorage.getItem('comments')){
+    comments.innerHTML = localStorage.getItem('comments')
+  }
 
   commentSection.append(commentsHeaderDiv)
   commentSection.append(comments)
@@ -107,6 +130,8 @@ window.onload = async () => {
 
     comments.append(comment)
     textArea.value = ''
+
+    localStorage.setItem('comments', `${comments.innerHTML}`)
   }
 
   postButton.addEventListener('click', postComment)
@@ -126,7 +151,14 @@ window.onload = async () => {
     likeCount.innerText = `Likes: ${upScore}`
     dislikeCount.innerText = `Dislikes: ${downScore}`
     comments.innerHTML = ''
+
+    localStorage.setItem('cat-pic', `${newCatData[0].url}`)
+    localStorage.setItem('up-score', `${upScore}`)
+    localStorage.setItem('down-score', `${downScore}`)
+    localStorage.setItem('comments', `${comments.innerHTML}`)
   }
+
+  //storage (local)
 
   newCatButton.addEventListener('click', getNewCat)
 
