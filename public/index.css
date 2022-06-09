@@ -1,13 +1,19 @@
-.dark-theme {
+.dark-mode {
   --main-bg-color: #202124;
   --main-color: #303134;
   --text-color: white;
+  --shadow-color: rgba(255, 255, 255, 0.2);
+  --text-area-color: rgb(64, 68, 75);
+  --button-color: #b9bbbe;
 }
 
-.light-theme {
+.light-mode {
   --main-bg-color: #fafafa;
   --main-color: #ffffff;
   --text-color: black;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --text-area-color: #f1f1f1;
+  --button-color: #f1f1f1;
 }
 
 
@@ -22,6 +28,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+button {
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 5px;
 }
 
 h1 {
@@ -44,7 +56,7 @@ h1 {
 
   border-radius: 5px;
   /* border: 2px solid rgba(0, 0, 0, .3); */
-  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 1px 1px var(--shadow-color);
 
   width: 472px;
   height: 760px;
@@ -76,10 +88,11 @@ h1 {
   grid-area: "Comment-Section";
   margin-left: 10px;
   overflow-y: scroll;
+
 }
 
 .comments-header-div {
-  background-color: #FFFFFF;
+  background-color: var(--main-color);
   position: fixed;
   width: 445px;
 }
@@ -113,10 +126,15 @@ textarea {
   height: 25;
   resize: none;
   font-family: sans-serif;
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--text-area-color);
 }
 
 .comment-post-button {
   font-weight: bold;
+  height: 34px;
 }
 
 span {
@@ -126,4 +144,5 @@ span {
 .newCatButton {
   margin-top: 20px;
   font-weight: bold;
+  background-color: var(--button-color);
 }

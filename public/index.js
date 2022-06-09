@@ -2,10 +2,49 @@
 window.onload = async () => {
   //main container
   const mainContainer = document.createElement('div');
-  mainContainer.setAttribute('class', 'main-container')
+  mainContainer.setAttribute('class', 'main-container');
   document.body.append(mainContainer);
 
   //themes
+  const themeButton = document.createElement('button');
+  themeButton.setAttribute('class', 'theme-button');
+  themeButton.innerText = 'Dark Mode'
+  mainContainer.append(themeButton);
+
+  if (localStorage.getItem('theme')){
+    document.body.setAttribute('class', `${localStorage.getItem('theme')}`)
+    if (document.body.getAttribute('class') === 'light-mode') {
+      themeButton.innerText = 'Dark Mode'
+    } else if (document.body.getAttribute('class') === 'dark-mode') {
+      themeButton.innerText = 'Light Mode'
+    }
+  } else {
+    document.body.setAttribute('class', 'light-mode')
+    localStorage.setItem('theme', 'light-mode')
+  }
+
+  function changeTheme(themeName) {
+    document.body.className = `theme-${themeName}`
+  }
+
+  themeButton.addEventListener('click', toggleTheme)
+
+  function toggleTheme() {
+    // check class
+    if (document.body.getAttribute('class') === 'light-mode') {
+      document.body.classList.remove('light-mode');
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark-mode');
+      themeButton.innerText = 'Light Mode'
+    } else {
+      document.body.classList.remove('dark-mode');
+      document.body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light-mode');
+      themeButton.innerText = 'Dark Mode'
+    }
+    // if dark mode switch to light mode class
+    // or vice versa
+  }
 
 
   //title
