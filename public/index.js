@@ -28,18 +28,18 @@ window.onload = async () => {
   function toggleTheme() {
     // check class
     if (document.body.getAttribute('class') === 'light-mode') {
+      // if dark mode switch to light mode class
       document.body.classList.remove('light-mode');
       document.body.classList.add('dark-mode');
       localStorage.setItem('theme', 'dark-mode');
       themeButton.innerText = 'Light Mode'
     } else {
+      // or vice versa
       document.body.classList.remove('dark-mode');
       document.body.classList.add('light-mode');
       localStorage.setItem('theme', 'light-mode');
       themeButton.innerText = 'Dark Mode'
     }
-    // if dark mode switch to light mode class
-    // or vice versa
   }
 
 
@@ -197,4 +197,10 @@ window.onload = async () => {
 
   newCatButton.addEventListener('click', getNewCat)
 
+
+  // footer?
+
+//   let footer = document.createElement('footer')
+//   footer.innerText = 'Made by Edward and Drew'
+//   document.body.append(footer)
 }
